@@ -1,16 +1,11 @@
 const data = fetch('data.json')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        return data;
-    }
-    )
+        return data;})
     .catch(error => console.log(error));
 
 // Convert data into array
 let chartContainer = document.querySelector('.chart-container');
-
-// Map through data and populate chart
 data.then(data => {
     data.forEach(item => {
         let chart = document.createElement('div');
@@ -28,12 +23,7 @@ data.then(data => {
             <div class="chart-value" style="--height:${height}rem"></div>
             </article>`
         }
-        chart.innerHTML = `
-        ${value}
-        <div class="chart-title">${item.day}</div>
-        `;
+        chart.innerHTML = `${value}
+        <div class="chart-title">${item.day}</div>`;
         chartContainer.appendChild(chart);
-    }
-    )
-}
-)
+    })})
